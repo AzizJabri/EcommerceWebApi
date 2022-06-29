@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Store, Adress, Review
+from .models import Store, Adress, StoreReview
 
 
 class StoreSerializer(serializers.ModelSerializer):
@@ -18,6 +18,6 @@ class AdressSerializer(serializers.ModelSerializer):
 
 class ReviewSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Review
+        model = StoreReview
         fields = ('id', 'store', 'user', 'rating', 'comment')
         read_only_fields = ('user', "store", "id")
