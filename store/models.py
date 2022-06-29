@@ -17,7 +17,7 @@ class Store(models.Model):
         return self.name
 
     def get_rating_average(self):
-        ratings = Review.objects.filter(store=self)
+        ratings = StoreReview.objects.filter(store=self)
         if ratings.count() == 0:
             return 0
         return sum(rating.rating for rating in ratings) / ratings.count()
@@ -35,7 +35,7 @@ class Adress(models.Model):
         return self.street
 
 
-class Review(models.Model):
+class StoreReview(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4)
     store = models.ForeignKey(Store, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
