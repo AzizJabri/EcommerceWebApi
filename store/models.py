@@ -12,6 +12,7 @@ class Store(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    image = models.ImageField(upload_to='store_images', blank=True)
 
     def __str__(self):
         return self.name
@@ -45,3 +46,12 @@ class StoreReview(models.Model):
 
     def __str__(self):
         return self.comment
+
+
+class StoreImage(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4)
+    store = models.ForeignKey(Store, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='store_images')
+
+    def __str__(self):
+        return self.store.name + " image"

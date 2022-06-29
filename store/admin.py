@@ -5,3 +5,5 @@ from .models import *
 admin.site.register(Store)
 admin.site.register(Adress)
 admin.site.register(StoreReview)
+
+admin.site.register(StoreImage)

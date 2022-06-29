@@ -17,6 +17,7 @@ class User(AbstractUser):
     email = models.EmailField(_('email address'), unique=True)
     uuid = models.UUIDField(primary_key=True, default=uuid.uuid4)
     is_verified = models.BooleanField(default=False)
+    image = models.ImageField(upload_to='user_images', blank=True)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
@@ -25,6 +26,17 @@ class User(AbstractUser):
 
     def __str__(self) -> str:
         return self.email
+
+
+class UserAdress(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    street = models.CharField(max_length=255)
+    city = models.CharField(max_length=255)
+    state = models.CharField(max_length=255)
+    zip_code = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.street
 
 
 @receiver(reset_password_token_created)

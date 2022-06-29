@@ -2,6 +2,8 @@ from rest_framework import serializers
 from django.contrib.auth import authenticate
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth import get_user_model, password_validation
+from .models import UserAdress
+
 User = get_user_model()
 
 # User Serializer
@@ -10,7 +12,7 @@ User = get_user_model()
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('uuid', 'email', 'is_verified')
+        fields = ('uuid', 'email', 'is_verified', 'image')
 
 # Register Serializer
 
