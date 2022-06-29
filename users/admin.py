@@ -14,7 +14,7 @@ class UserAdminConfig(UserAdmin):
                     'is_verified', 'is_active', 'is_staff')
     fieldsets = (
         ('Credentials', {'fields': ('first_name',
-         'last_name', 'email', 'uuid', 'is_verified')}),
+         'last_name', 'email', 'uuid', 'is_verified', 'image')}),
         ('Permissions', {'fields': ('is_staff', 'is_active',
          'is_superuser', 'last_login', 'date_joined', 'user_permissions')}),
     )
