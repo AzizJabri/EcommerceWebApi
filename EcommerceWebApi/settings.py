@@ -36,7 +36,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'api',
     'users',
     "store",
     "products",
@@ -152,7 +151,7 @@ REST_FRAMEWORK = {
 }
 
 REST_KNOX = {
-    'USER_SERIALIZER': 'api.serializers.UserSerializer',
+    'USER_SERIALIZER': 'users.serializers.UserSerializer',
     'AUTO_REFRESH': True,
     "TOKEN_LIMIT_PER_USER": 5,
 }

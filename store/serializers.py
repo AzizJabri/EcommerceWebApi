@@ -6,6 +6,7 @@ class StoreSerializer(serializers.ModelSerializer):
     class Meta:
         model = Store
         fields = ('id', 'name', 'owner', 'created_at', 'updated_at')
+        read_only_fields = ('id', 'created_at', 'updated_at', 'owner')
 
 
 class AdressSerializer(serializers.ModelSerializer):

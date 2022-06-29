@@ -8,7 +8,7 @@ from .models import Store, Adress, Review
 from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
 
 
-class StoreView(APIView):
+class StoreListView(APIView):
 
     permission_classes = [IsAuthenticatedOrReadOnly]
 
@@ -20,7 +20,7 @@ class StoreView(APIView):
     def post(self, request):
         serializer = StoreSerializer(data=request.data)
         if serializer.is_valid():
-            serializer.save(owner=request.user)
+            serializer.save(owner=request.auth.user)
             return Response(serializer.data, status=201)
         return Response(serializer.errors, status=400)
 
