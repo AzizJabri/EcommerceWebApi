@@ -25,7 +25,7 @@ with open('db_conf.json') as config_file:
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-m)23v14(9a5*4k86uxbgfz+e-wz@y%g7d47d$3kunofarx6c6i'
+SECRET_KEY = config["DJANGO_SECRET"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -48,7 +48,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'django_rest_passwordreset',
     'knox',
-
     "corsheaders",
 
 ]
